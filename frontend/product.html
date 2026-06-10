@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Product details — ShopNova" />
+  <title>Product Details — ShopNova</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">⚡ ShopNova</a>
+      <div class="nav-search">
+        <span class="nav-search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search products…" onkeydown="if(event.key==='Enter')location.href='/?search='+encodeURIComponent(this.value)" />
+      </div>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/orders.html" class="nav-link" id="nav-orders" style="display:none">Orders</a>
+        <a href="/auth.html" class="nav-link" id="nav-auth">Login</a>
+        <span class="nav-link" id="nav-user" style="display:none; color:var(--accent); font-weight:600;"></span>
+        <button class="nav-link" id="nav-logout" style="display:none; background:rgba(239,68,68,0.1); color:var(--danger); border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:0.4rem 0.8rem; font-size:0.85rem; cursor:pointer;">Logout</button>
+        <a href="/cart.html" class="nav-cart-btn">
+          🛒 Cart
+          <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="container" style="padding-top:1.5rem;">
+    <nav style="font-size:0.85rem; color:var(--text-muted);">
+      <a href="/" style="color:var(--accent);">Home</a>
+      <span style="margin:0 0.5rem;">/</span>
+      <span id="breadcrumb-cat">Products</span>
+      <span style="margin:0 0.5rem;">/</span>
+      <span id="breadcrumb-name" style="color:var(--text-secondary);">Loading…</span>
+    </nav>
+  </div>
+
+  <!-- Product Detail -->
+  <div class="container">
+    <div id="product-detail-root">
+      <div class="loading-wrap">
+        <div class="spinner"></div>
+        <p>Loading product…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <section class="section" id="related-section" style="display:none;">
+    <div class="container">
+      <h2 class="section-title">Related Products</h2>
+      <div class="products-grid" id="related-grid"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container"><p>© 2024 <strong>ShopNova</strong></p></div>
+  </footer>
+
+  <div id="toast-container" class="toast-container"></div>
+  <script src="/js/api.js"></script>
+  <script src="/js/product-detail.js"></script>
+</body>
+</html>
